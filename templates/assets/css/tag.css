@@ -1,0 +1,24 @@
+.content{
+    width: 1000px;
+    margin: 0 auto;
+    ul{
+        list-style: none;
+        margin-top: 20px;
+        li{
+            margin-top: 10px;
+            font-size: 1.2rem;
+        }
+    }
+    .pagination{
+        display: flex;
+        justify-content: center;
+        padding: 80px;
+        gap: 100px;
+        a{
+            padding: 10px 20px;
+            border: #686865 solid 1px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    }
+}

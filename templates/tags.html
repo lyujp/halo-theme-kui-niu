@@ -1,22 +1,23 @@
 <!DOCTYPE html>
 <html
         xmlns:th="https://www.thymeleaf.org"
-        th:replace="~{layout :: html(head = ~{::head},content = ~{::content},footerjs = null)}"
+        th:replace="~{layout :: html(title = |Tags - ${site.title}|, head = ~{::head},content = ~{::content},footerjs = null)}"
 >
 
 <th:block th:fragment="head">
-  <link rel="stylesheet" th:href="@{/assets/css/index.css?v={version}(version=${theme.spec.version})}" />
+  <link rel="stylesheet" th:href="@{/assets/css/tag.css?v={version}(version=${theme.spec.version})}" />
 </th:block>
 
 <th:block th:fragment="content">
     <h1>标签</h1>
-    <ul>
-      <li th:each="tag : ${tags}">
-        <a
-          th:href="@{${tag.status.permalink}}"
-          th:text="${tag.spec.displayName}"
-        ></a>
-      </li>
-    </ul>
+  <ul>
+    <li th:each="tag : ${tags}">
+      <a
+              th:href="@{${tag.status.permalink}}"
+              th:text="${tag.spec.displayName}"
+      ></a>
+    </li>
+  </ul>
+
   </th:block>
 </html>

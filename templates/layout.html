@@ -2,7 +2,7 @@
 <html
   lang="zh"
   xmlns:th="https://www.thymeleaf.org"
-  th:fragment="html (head,content,footerjs)"
+  th:fragment="html (title,head,content,footerjs)"
 >
   <head>
     <meta charset="UTF-8" />
@@ -11,7 +11,7 @@
       name="viewport"
       content="width=device-width, initial-scale=1, maximum-scale=2"
     />
-    <title th:text="${site.title}"></title>
+    <title th:text="${title}"></title>
     <link
       rel="stylesheet"
       th:href="@{/assets/css/style.css?v={version}(version=${theme.spec.version})}"

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html
         xmlns:th="https://www.thymeleaf.org"
-        th:replace="~{layout :: html(head = ~{::head},content = ~{::content},footerjs = null)}"
+        th:replace="~{layout :: html(title = |${category.spec.displayName} - ${site.title}|, head = ~{::head},content = ~{::content},footerjs = null)}"
 >
 
 <th:block th:fragment="head">
@@ -10,15 +10,96 @@
 
 <th:block th:fragment="content">
     <h1 th:text="${category.spec.displayName}"></h1>
-    <ul>
-      <li th:each="post : ${posts.items}">
-        <a
-          th:href="@{${post.status.permalink}}"
-          th:text="${post.spec.title}"
-        ></a>
-      </li>
-    </ul>
+  <div class="blog-list">
+    <div class="col">
+      <div class="large-items">
+        <div class="item" th:if="${posts.items.size > 0}">
+          <div class="cover">
+            <a th:href="@{${posts.items[0].status.permalink}}"><img th:src="${posts.items[0].spec.cover}" alt="" src=""></a>
+          </div>
+          <div class="categories" th:each="category :${posts.items[0].categories}">
+            <div class="category" th:text="${category.spec.displayName}"></div>
+          </div>
+          <div class="post-title">
+            <a th:href="@{${posts.items[0].status.permalink}}" th:text="${posts.items[0].spec.title}"></a>
+          </div>
+          <div class="post-summary">
+            <a th:href="@{${posts.items[0].status.permalink}}" th:text="${posts.items[0].status.excerpt}"></a>
+          </div>
+        </div>
+      </div>
+      <div class="small-items">
+        <div class="item" th:if="${posts.items.size > 1}">
+          <div class="cover">
+            <a th:href="@{${posts.items[1].status.permalink}}"><img th:src="${posts.items[1].spec.cover}" alt="" src=""></a>
+          </div>
+          <div>
+            <div class="categories" th:each="category :${posts.items[1].categories}">
+              <div class="category" th:text="${category.spec.displayName}"></div>
+            </div>
+            <div class="post-title">
+              <a th:href="@{${posts.items[1].status.permalink}}" th:text="${posts.items[1].spec.title}"></a>
+            </div>
+            <div class="post-summary">
+              <a th:href="@{${posts.items[1].status.permalink}}" th:text="${posts.items[1].status.excerpt}"></a>
+            </div>
+          </div>
+        </div>
+        <div class="item" th:if="${posts.items.size > 2}">
+          <div class="cover">
+            <a th:href="@{${posts.items[2].status.permalink}}"><img th:src="${posts.items[2].spec.cover}" alt="" src=""></a>
+          </div>
+          <div>
+            <div class="categories" th:each="category :${posts.items[2].categories}">
+              <div class="category" th:text="${category.spec.displayName}"></div>
+            </div>
+            <div class="post-title">
+              <a th:href="@{${posts.items[2].status.permalink}}" th:text="${posts.items[2].spec.title}"></a>
+            </div>
+            <div class="post-summary">
+              <a th:href="@{${posts.items[2].status.permalink}}" th:text="${posts.items[2].status.excerpt}"></a>
+            </div>
+          </div>
+        </div>
+        <div class="item" th:if="${posts.items.size > 3}">
+          <div class="cover">
+            <a th:href="@{${posts.items[3].status.permalink}}"><img th:src="${posts.items[3].spec.cover}" alt="" src=""></a>
+          </div>
+          <div>
+            <div class="categories" th:each="category :${posts.items[3].categories}">
+              <div class="category" th:text="${category.spec.displayName}"></div>
+            </div>
+            <div class="post-title">
+              <a th:href="@{${posts.items[3].status.permalink}}" th:text="${posts.items[3].spec.title}"></a>
+            </div>
+            <div class="post-summary">
+              <a th:href="@{${posts.items[3].status.permalink}}" th:text="${posts.items[3].status.excerpt}"></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="list-items">
+      <div class="item" th:each="post , iterStat : ${posts.items}" th:if="${iterStat.index >= 4}">
+        <div class="cover">
+          <a th:href="@{${post.status.permalink}}"><img th:src="${post.spec.cover}" alt="" src=""></a>
+        </div>
+        <div>
+          <div class="categories" th:each="category :${post.categories}">
+            <div class="category" th:text="${category.spec.displayName}"></div>
+          </div>
+          <div class="post-title">
+            <a th:href="@{${post.status.permalink}}" th:text="${post.spec.title}"></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <div class="pagination">
     <a th:if="${posts.hasPrevious()}" th:href="@{${posts.prevUrl}}">上一页</a>
     <a th:if="${posts.hasNext()}" th:href="@{${posts.nextUrl}}">下一页</a>
+  </div>
   </th:block>
 </html>

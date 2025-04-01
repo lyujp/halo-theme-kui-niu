@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html
         xmlns:th="https://www.thymeleaf.org"
-        th:replace="~{layout :: html(head = ~{::head},content = ~{::content},footerjs = null)}"
+        th:replace="~{layout :: html(title = |#{page.archives.title} - ${site.title}|, head = ~{::head},content = ~{::content},footerjs = null)}"
 >
 
 <th:block th:fragment="head">
-  <link rel="stylesheet" th:href="@{/assets/css/index.css?v={version}(version=${theme.spec.version})}" />
+    <link rel="stylesheet" th:href="@{/assets/css/tag.css?v={version}(version=${theme.spec.version})}" />
 </th:block>
 
 <th:block th:fragment="content">
@@ -23,9 +23,11 @@
         </th:block>
       </ul>
     </th:block>
-    <a th:if="${archives.hasPrevious()}" th:href="@{${archives.prevUrl}}">
-      上一页
-    </a>
-    <a th:if="${archives.hasNext()}" th:href="@{${archives.nextUrl}}">下一页</a>
+    <div class="pagination">
+        <a th:if="${archives.hasPrevious()}" th:href="@{${archives.prevUrl}}">
+            上一页
+        </a>
+        <a th:if="${archives.hasNext()}" th:href="@{${archives.nextUrl}}">下一页</a>
+    </div>
   </th:block>
 </html>
