@@ -1,19 +1,19 @@
 apiVersion: theme.halo.run/v1alpha1
 kind: Theme
 metadata:
-  name: theme-starter
+  name: theme-kui-niu
 spec:
-  displayName: Theme Starter
+  displayName: Kui Niu
   author:
-    name: Halo
-    website: "https://github.com/halo-dev"
-  description: Halo 2.0 Theme base on Thymeleaf
+    name: Lyu
+    website: "https://blog.luijp.cn"
+  description: Halo 2.0 Theme Kui Niu
   logo: "https://www.halo.run/logo"
-  homepage: "https://github.com/halo-dev/theme-starter#readme"
-  repo: "https://github.com/halo-dev/theme-starter"
-  issues: "https://github.com/halo-dev/theme-starter/issues"
-  settingName: "theme-starter-setting"
-  configMapName: "theme-starter-configMap"
+  homepage: "https://github.com/lyujp/halo-theme-kui-niu"
+  repo: "https://github.com/lyujp/halo-theme-kui-niu"
+  issues: "https://github.com/lyujp/halo-theme-kui-niu/issues"
+  settingName: "theme-kui-niu-setting"
+  configMapName: "theme-kui-niu-configMap"
   version: "1.0.0"
   requires: ">=2.0.0"
   license:

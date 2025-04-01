@@ -1,8 +1,8 @@
 <!doctype html>
 <html
-  lang="en"
+  lang="zh"
   xmlns:th="https://www.thymeleaf.org"
-  th:fragment="html (head,content)"
+  th:fragment="html (head,content,afterContainer)"
 >
   <head>
     <meta charset="UTF-8" />
@@ -16,18 +16,74 @@
       rel="stylesheet"
       th:href="@{/assets/css/style.css?v={version}(version=${theme.spec.version})}"
     />
-    <script
-      th:src="@{/assets/js/main.js?v={version}(version=${theme.spec.version})}"
-    ></script>
     <th:block th:if="${head != null}">
       <th:block th:replace="${head}" />
     </th:block>
   </head>
-  <body
-    th:style="'background-color: '+${theme.config.style.background_color ?: '#f2f2f2'}"
-  >
-    <section>
+  <body>
+  <div class="container">
+    <div class="header">
+      <div class="logo-inner">
+        <div class="logo">
+          <img th:src="${site.logo}" alt="logo" src="">
+        </div>
+        <div class="title" th:text="${site.title}"></div>
+      </div>
+      <div class="menu" th:with="menu = ${menuFinder.getPrimary()}">
+        <div class="hamburger" onclick="clickHamburger()">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>menu</title><path d="M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z" /></svg>
+        </div>
+        <ul id="menu" th:with="menuItems = ${menu.menuItems}">
+          <li th:each="menuItem : ${menuItems}">
+            <a
+                    th:href="@{${menuItem.status.href}}"
+                    th:text="${menuItem.status.displayName}"
+                    th:target="${menuItem.spec.target?.value}"
+            >
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="content">
       <th:block th:replace="${content}" />
-    </section>
+    </div>
+  </div>
+
+  <th:block  th:if="${afterContainer != null}">
+    <th:block th:replace="${afterContainer}" />
+  </th:block>
+
+  <div class="footer">
+    <div class="col">
+      <div class="logo">
+        <img th:src="${site.logo}" alt="logo" src="">
+      </div>
+      <div class="title" th:text="${site.title}"></div>
+    </div>
+    <div class="subtitle" th:text="${site.subtitle}"></div>
+    <div class="menu" th:with="menu = ${menuFinder.getPrimary()}">
+      <ul th:with="menuItems = ${menu.menuItems}">
+        <li th:each="menuItem : ${menuItems}">
+          <a
+                  th:href="@{${menuItem.status.href}}"
+                  th:text="${menuItem.status.displayName}"
+                  th:target="${menuItem.spec.target?.value}"
+          >
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="social"></div>
+    <div class="hr"></div>
+    <div class="copyright">
+      <div>Copyright &copy; 2025 <span id="copyright-domain">LocalHost</span></div>
+      <div>Theme Powered By Kui Niu</div>
+    </div>
+
+  </div>
+  <script
+          th:src="@{/assets/js/main.js?v={version}(version=${theme.spec.version})}"
+  ></script>
   </body>
 </html>

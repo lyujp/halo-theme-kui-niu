@@ -1,18 +1,121 @@
 <!DOCTYPE html>
 <html
   xmlns:th="https://www.thymeleaf.org"
-  th:replace="~{layout :: html(head = null,content = ~{::content})}"
+  th:replace="~{layout :: html(head = ~{::head},content = ~{::content},afterContainer = null)}"
 >
-  <th:block th:fragment="content">
-    <ul>
-      <li th:each="post : ${posts.items}">
-        <a
-          th:href="@{${post.status.permalink}}"
-          th:text="${post.spec.title}"
-        ></a>
-      </li>
-    </ul>
-    <a th:if="${posts.hasPrevious()}" th:href="@{${posts.prevUrl}}">上一页</a>
-    <a th:if="${posts.hasNext()}" th:href="@{${posts.nextUrl}}">下一页</a>
-  </th:block>
+
+<th:block th:fragment="head">
+  <link rel="stylesheet" th:href="@{/assets/css/index.css?v={version}(version=${theme.spec.version})}" />
+</th:block>
+
+<th:block th:fragment="content">
+  <div class="head-title">
+    <div class="title" th:text="${site.title}"></div>
+    <div class="subtitle-container">
+      <div class="subtitle" th:text="${site.subtitle}"></div>
+      <div class="search">
+        <label>
+          <input value="" placeholder="Search">
+        </label>
+      </div>
+    </div>
+  </div>
+  <div class="blog-list" th:with="currentPage=1,posts = ${postFinder.list(currentPage,7)}">
+    <div class="col">
+      <div class="large-items">
+        <div class="item">
+          <div class="cover">
+            <img src="" alt="">
+          </div>
+          <div class="category">未分类</div>
+          <div class="post-title">你好，世界</div>
+          <div class="post-summary">如果你看到来这篇文章，那你就看到了这篇文章</div>
+        </div>
+      </div>
+      <div class="small-items">
+        <div class="item">
+          <div class="cover">
+            <img src="" alt="">
+          </div>
+          <div>
+            <div class="category">未分类</div>
+            <div class="post-title">你好，世界</div>
+            <div class="post-summary">如果你看到来这篇文章，那你就看到了这篇文章</div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="cover">
+            <img src="" alt="">
+          </div>
+          <div>
+            <div class="category">未分类</div>
+            <div class="post-title">你好，世界</div>
+            <div class="post-summary">如果你看到来这篇文章，那你就看到了这篇文章</div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="cover">
+            <img src="" alt="">
+          </div>
+          <div>
+            <div class="category">未分类</div>
+            <div class="post-title">你好，世界</div>
+            <div class="post-summary">如果你看到来这篇文章，那你就看到了这篇文章</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="archive-items">
+      <div class="item">
+        <div class="cover">
+          <img src="" alt="">
+        </div>
+        <div>
+          <div class="category">未分类</div>
+          <div class="post-title">你好，世界gvsfgsadfasfaefaef</div>
+        </div>
+      </div>
+      <div class="item">
+        <div class="cover">
+          <img src="" alt="">
+        </div>
+        <div>
+          <div class="category">未分类</div>
+          <div class="post-title">你好，世界</div>
+        </div>
+      </div>
+      <div class="item">
+        <div class="cover">
+          <img src="" alt="">
+        </div>
+        <div>
+          <div class="category">未分类</div>
+          <div class="post-title">你好，世界</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <div class="pagination">
+        <a>上一页</a>
+        <a>下一页</a>
+  </div>
+</th:block>
+
+
+
+
+<!--  <th:block th:fragment="content">-->
+<!--    <ul>-->
+<!--      <li th:each="post : ${posts.items}">-->
+<!--        <a-->
+<!--          th:href="@{${post.status.permalink}}"-->
+<!--          th:text="${post.spec.title}"-->
+<!--        ></a>-->
+<!--      </li>-->
+<!--    </ul>-->
+<!--    <a th:if="${posts.hasPrevious()}" th:href="@{${posts.prevUrl}}">上一页</a>-->
+<!--    <a th:if="${posts.hasNext()}" th:href="@{${posts.nextUrl}}">下一页</a>-->
+<!--  </th:block>-->
 </html>

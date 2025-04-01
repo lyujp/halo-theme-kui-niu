@@ -1,0 +1,221 @@
+@media (min-width: 1000px){
+    .content{
+        width: 1000px;
+        margin: 0 auto;
+        .head-title{
+            display: flex;
+            align-items: center;
+            .title{
+                font-size: 3.0rem;
+                font-weight: bolder;
+                width: 600px;
+            }
+            .subtitle-container{
+                width: 400px;
+                .subtitle{
+                    font-size: 1.1rem;
+                    color: #716b5f;
+                    padding-left: 30px;
+                }
+                input{
+                    width: 100%;
+                    border-radius: 5px;
+                    padding: 8px 15px;
+                    margin-top: 20px;
+                    border: #686865 solid 1px;
+                    background-color: transparent;
+                }
+            }
+
+        }
+
+        .blog-list{
+            .col{
+                display: flex;
+                margin-top: 70px;
+                justify-content: space-between;
+                .large-items{
+                    .item{
+                        width: 460px;
+                        border: #686865 solid 1px;
+                        border-radius: 5px;
+                        box-shadow: #686865 5px 5px 1px;
+                        .cover{
+                            img{
+                                border-radius: 5px;
+                                margin: 30px;
+                                width: 400px;
+                                height: 225px;
+                                object-fit: cover;
+                            }
+                        }
+                        .category{
+                            margin-top: 20px;
+                            margin-left: 30px;
+                            background-color: #EBF7F5;
+                            display: inline;
+                            color: #716b5f;
+                            font-size: 0.8rem;
+                            padding: 5px 10px;
+                            border-radius: 5px;
+                        }
+                        .post-title{
+                            margin: 20px;
+                            font-size: 1.5rem;
+                        }
+                        .post-summary{
+                            margin: 20px;
+                            color: #716b5f;
+                            padding-bottom: 10px;
+                        }
+                    }
+                }
+                .small-items{
+                    width: 440px;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    .item{
+                        display: flex;
+                        .cover{
+                            margin-right: 10px;
+                            img{
+                                width: 208px;
+                                height: 117px;
+                                border-radius: 5px;
+                                object-fit: cover;
+                            }
+                        }
+                        .category{
+                            background-color: #EBF7F5;
+                            display: inline;
+                            color: #716b5f;
+                            font-size: 0.8rem;
+                            padding: 5px 10px;
+                            border-radius: 5px;
+                        }
+                        .post-title{
+                            font-size: 1.2rem;
+                            margin-top: 15px;
+                        }
+                        .post-summary{
+                            margin-top: 10px;
+                            color: #716b5f;
+                            padding-bottom: 10px;
+                            font-size: 0.8rem;
+                        }
+                    }
+                }
+
+            }
+            .archive-items{
+                display: flex;
+                margin-top: 50px;
+                justify-content: space-between;
+                .item{
+                    display: flex;
+                    width: 300px;
+                    .cover{
+                        margin-right: 10px;
+                        img{
+                            width: 150px;
+                            height: 150px;
+                            border-radius: 5px;
+                            object-fit: cover;
+                        }
+                    }
+                    .category{
+                        background-color: #EBF7F5;
+                        display: inline;
+                        color: #716b5f;
+                        font-size: 0.8rem;
+                        padding: 5px 10px;
+                        border-radius: 5px;
+                    }
+                    .post-title{
+                        font-size: 1.2rem;
+                        margin-top: 15px;
+                    }
+                }
+            }
+
+        }
+
+        .pagination{
+            display: flex;
+            justify-content: center;
+            padding: 80px;
+            gap: 100px;
+            a{
+                padding: 10px 20px;
+                border: #686865 solid 1px;
+                border-radius: 5px;
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+@media (max-width: 1000px){
+    .content{
+        .head-title{
+            .title{
+                display: none;
+            }
+            .subtitle-container{
+                .subtitle{
+                    display: none;
+                }
+                input{
+                    width: 90%;
+                    border-radius: 5px;
+                    padding: 8px 15px;
+                    margin: 20px;
+                    border: #686865 solid 1px;
+                    background-color: transparent;
+                }
+            }
+
+        }
+
+        .blog-list{
+            .item{
+                padding: 10px;
+                border-radius: 3px;
+                border: #686865 solid 1px;
+                margin: 10px;
+                .category{
+                    background-color: #EBF7F5;
+                    display: inline;
+                    color: #716b5f;
+                    font-size: 0.8rem;
+                    padding: 5px 10px;
+                    border-radius: 5px;
+                }
+                .post-title{
+                    font-size: 1.2rem;
+                    margin-top: 15px;
+                }
+                .post-summary{
+                    margin-top: 10px;
+                    color: #716b5f;
+                    padding-bottom: 10px;
+                    font-size: 0.8rem;
+                }
+            }
+        }
+
+        .pagination{
+            display: flex;
+            justify-content: center;
+            padding: 10px;
+            gap: 20px;
+            a{
+                padding: 10px 20px;
+                border: #686865 solid 1px;
+                border-radius: 5px;
+                cursor: pointer;
+            }
+        }
+    }
+}
