@@ -2,7 +2,7 @@
 <html
   lang="zh"
   xmlns:th="https://www.thymeleaf.org"
-  th:fragment="html (head,content,afterContainer)"
+  th:fragment="html (head,content,footerjs)"
 >
   <head>
     <meta charset="UTF-8" />
@@ -50,9 +50,7 @@
     </div>
   </div>
 
-  <th:block  th:if="${afterContainer != null}">
-    <th:block th:replace="${afterContainer}" />
-  </th:block>
+
 
   <div class="footer">
     <div class="col">
@@ -85,5 +83,8 @@
   <script
           th:src="@{/assets/js/main.js?v={version}(version=${theme.spec.version})}"
   ></script>
+  <th:block  th:if="${footerjs != null}">
+    <th:block th:replace="${footerjs}" />
+  </th:block>
   </body>
 </html>

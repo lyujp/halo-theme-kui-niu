@@ -1,16 +1,25 @@
 <!DOCTYPE html>
 <html
         xmlns:th="https://www.thymeleaf.org"
-        th:replace="~{layout :: html(head = ~{::head},content = ~{::content},afterContainer = null)}"
+        th:replace="~{layout :: html(head = ~{::head},content = ~{::content},footerjs = ~{::footerjs})}"
 >
 
   <th:block th:fragment="head">
     <link rel="stylesheet" th:href="@{/assets/css/github-markdown-light.css?v={version}(version=${theme.spec.version})}" />
     <link rel="stylesheet" th:href="@{/assets/css/post.css?v={version}(version=${theme.spec.version})}" />
+    <link rel="stylesheet" th:href="@{/assets/highlight/styles/github.css?v={version}(version=${theme.spec.version})}" />
   </th:block>
 
   <th:block th:fragment="content">
     <div class="post-title" th:text="${post.spec.title}"></div>
     <div class="markdown-body" th:utext="${post.content.content}"></div>
+  </th:block>
+
+  <th:block th:fragment="footerjs">
+    <script
+            th:src="@{/assets/highlight/highlight.js?v={version}(version=${theme.spec.version})}"
+    ></script>
+    <script>hljs.highlightAll();</script>
+    </script>
   </th:block>
 </html>
