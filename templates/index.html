@@ -25,7 +25,7 @@
       <div class="large-items">
         <div class="item" th:if="${posts.items.size > 0}">
           <div class="cover">
-            <a th:href="@{${posts.items[0].status.permalink}}"><img th:src="${posts.items[0].spec.cover}" alt="" src=""></a>
+            <a th:href="@{${posts.items[0].status.permalink}}"><img th:src="@{${posts.items[0].spec.cover}}" alt="" src=""></a>
           </div>
           <div class="categories" th:each="category :${posts.items[0].categories}">
             <div class="category" th:text="${category.spec.displayName}"></div>
@@ -41,7 +41,7 @@
       <div class="small-items">
         <div class="item" th:if="${posts.items.size > 1}">
           <div class="cover">
-            <a th:href="@{${posts.items[1].status.permalink}}"><img th:src="${posts.items[1].spec.cover}" alt="" src=""></a>
+            <a th:href="@{${posts.items[1].status.permalink}}"><img th:src="@{${posts.items[1].spec.cover}}" alt="" src=""></a>
           </div>
           <div>
             <div class="categories" th:each="category :${posts.items[1].categories}">
@@ -57,7 +57,7 @@
         </div>
         <div class="item" th:if="${posts.items.size > 2}">
           <div class="cover">
-            <a th:href="@{${posts.items[2].status.permalink}}"><img th:src="${posts.items[2].spec.cover}" alt="" src=""></a>
+            <a th:href="@{${posts.items[2].status.permalink}}"><img th:src="@{${posts.items[2].spec.cover}}" alt="" src=""></a>
           </div>
           <div>
             <div class="categories" th:each="category :${posts.items[2].categories}">
@@ -73,7 +73,7 @@
         </div>
         <div class="item" th:if="${posts.items.size > 3}">
           <div class="cover">
-            <a th:href="@{${posts.items[3].status.permalink}}"><img th:src="${posts.items[3].spec.cover}" alt="" src=""></a>
+            <a th:href="@{${posts.items[3].status.permalink}}"><img th:src="@{${posts.items[3].spec.cover}}" alt="" src=""></a>
           </div>
           <div>
             <div class="categories" th:each="category :${posts.items[3].categories}">
@@ -93,7 +93,7 @@
     <div class="list-items">
       <div class="item" th:each="post , iterStat : ${posts.items}" th:if="${iterStat.index >= 4}">
         <div class="cover">
-          <a th:href="@{${post.status.permalink}}"><img th:src="${post.spec.cover}" alt="" src=""></a>
+          <a th:href="@{${post.status.permalink}}"><img th:src="@{${post.spec.cover}}" alt="" src=""></a>
         </div>
         <div>
           <div class="categories" th:each="category :${post.categories}">
@@ -112,20 +112,4 @@
         <a th:if="${posts.hasNext()}" th:href="@{${posts.nextUrl}}">下一页</a>
   </div>
 </th:block>
-
-
-
-
-<!--  <th:block th:fragment="content">-->
-<!--    <ul>-->
-<!--      <li th:each="post : ${posts.items}">-->
-<!--        <a-->
-<!--          th:href="@{${post.status.permalink}}"-->
-<!--          th:text="${post.spec.title}"-->
-<!--        ></a>-->
-<!--      </li>-->
-<!--    </ul>-->
-<!--    <a th:if="${posts.hasPrevious()}" th:href="@{${posts.prevUrl}}">上一页</a>-->
-<!--    <a th:if="${posts.hasNext()}" th:href="@{${posts.nextUrl}}">下一页</a>-->
-<!--  </th:block>-->
 </html>

@@ -25,9 +25,11 @@
     <div class="header">
       <div class="logo-inner">
         <div class="logo">
-          <img th:src="${site.logo}" alt="logo" src="">
+          <img th:src="@{${site.logo}}" alt="logo" src="">
         </div>
-        <div class="title" th:text="${site.title}"></div>
+        <div class="title">
+          <a th:href="@{${site.url}}" th:text="${site.title}"></a>
+        </div>
       </div>
       <div class="menu" th:with="menu = ${menuFinder.getPrimary()}">
         <div class="hamburger" onclick="clickHamburger()">
@@ -50,12 +52,10 @@
     </div>
   </div>
 
-
-
   <div class="footer">
     <div class="col">
       <div class="logo">
-        <img th:src="${site.logo}" alt="logo" src="">
+        <img th:src="@{${site.logo}}" alt="logo" src="">
       </div>
       <div class="title" th:text="${site.title}"></div>
     </div>
@@ -75,6 +75,7 @@
     <div class="social"></div>
     <div class="hr"></div>
     <div class="copyright">
+      <div th:text="${theme.config.settings.icp}"></div>
       <div>Copyright &copy; 2025 <span id="copyright-domain">LocalHost</span></div>
       <div>Theme Powered By <a href="https://github.com/lyujp/halo-theme-kui-niu" target="_blank">Kui Niu</a></div>
     </div>

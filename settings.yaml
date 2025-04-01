@@ -4,10 +4,10 @@ metadata:
   name: theme-kui-niu-setting
 spec:
   forms:
-    - group: style
-      label: 样式
+    - group: settings
+      label: 设置
       formSchema:
-        - $formkit: color
-          name: background_color
-          label: 背景颜色
-          value: "#f2f2f2"
+        - $formkit: text
+          name: icp
+          label: ICP
+          value: ""
