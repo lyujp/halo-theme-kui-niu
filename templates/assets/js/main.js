@@ -1,4 +1,3 @@
-console.log("Hi from main.js");
 const clickHamburger = ()=>{
     const menuElement = document.getElementById("menu");
     if(menuElement.style.display === "block"){

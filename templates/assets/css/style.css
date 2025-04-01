@@ -63,9 +63,9 @@ a:hover, a:visited {
         }
         ul{
           display: flex;
+          gap: 30px;
           li{
             list-style: none;
-            margin-right: 35px;
             a{
               color: #686865;
             }
