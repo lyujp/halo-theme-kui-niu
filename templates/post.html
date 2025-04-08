@@ -13,6 +13,11 @@
   <th:block th:fragment="content">
     <div class="post-title" th:text="${post.spec.title}"></div>
     <div class="markdown-body" th:utext="${post.content.content}"></div>
+
+    <div th:if="${haloCommentEnabled}">
+      <div class="comment">评论：</div>
+      <halo:comment group="content.halo.run" kind="Post" th:attr="name=${post.metadata.name}" />
+    </div>
   </th:block>
 
   <th:block th:fragment="footerjs">

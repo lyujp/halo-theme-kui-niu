@@ -16,3 +16,10 @@
         width: auto;
     }
 }
+
+.comment{
+    margin-top: 50px;
+    margin-bottom: 30px;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
