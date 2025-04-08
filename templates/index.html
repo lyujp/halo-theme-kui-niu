@@ -13,9 +13,9 @@
     <div class="title" th:text="${site.title}"></div>
     <div class="subtitle-container">
       <div class="subtitle" th:text="${site.subtitle}"></div>
-      <div class="search">
+      <div class="search" th:if="${pluginFinder.available('PluginSearchWidget')}">
         <label>
-          <input value="" placeholder="Search">
+          <input value="" onclick="javascript:SearchWidget.open()" placeholder="Search">
         </label>
       </div>
     </div>
