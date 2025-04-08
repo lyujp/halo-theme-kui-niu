@@ -1,5 +1,29 @@
+@media (min-width: 1000px){
+    .content{
+        width: 1000px;
+    }
+
+    .markdown-body{
+        img{
+            max-height: 500px;
+            width: auto;
+        }
+    }
+}
+
+@media (max-width: 1000px){
+    .content{
+        width: 90%;
+    }
+
+    .markdown-body{
+        img{
+            max-width: 90%;
+            height: auto;
+        }
+    }
+}
 .content{
-    width: 1000px;
     margin: 0 auto;
     padding-bottom: 50px;
 }
@@ -10,12 +34,7 @@
     margin-top: 20px;
     margin-bottom: 50px;
 }
-.markdown-body{
-    img{
-        max-height: 500px;
-        width: auto;
-    }
-}
+
 
 .comment{
     margin-top: 50px;
